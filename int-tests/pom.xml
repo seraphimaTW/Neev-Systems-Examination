@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>int-tests</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <profiles>
+        <!-- Integration testing the CLI -->
+        <profile>
+            <id>cli-test</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>pre-integration-test</phase>
+                                <configuration>
+                                    <tasks>
+<!--                                        <mkdir dir="${project.build.directory}/downloads/"/>-->
+<!--                                        <get src="https://pypi.python.org/packages/source/p/pexpect/pexpect-3.2.tar.gz"-->
+<!--                                             dest="${project.build.directory}/downloads/"-->
+<!--                                             verbose="true"/>-->
+<!--                                        <gunzip src="${project.build.directory}/downloads/pexpect-3.2.tar.gz"-->
+<!--                                                dest="${project.build.directory}/downloads/pexpect-3.2.tar"/>-->
+<!--                                        <untar src="${project.build.directory}/downloads/pexpect-3.2.tar"-->
+<!--                                               dest="${project.build.directory}/"/>-->
+                                    </tasks>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <executable>python</executable>
+                                    <workingDirectory>src/test/python</workingDirectory>
+                                    <!-- interactive use cases -->
+                                    <arguments>
+                                        <argument>iteractive.py</argument>
+                                    </arguments>
+                                    <environmentVariables>
+                                        <PYTHONPATH>
+                                            ../../main/python:${project.build.directory}/pexpect-3.2:$PYTHONPATH
+                                        </PYTHONPATH>
+                                    </environmentVariables>
+                                </configuration>
+                                <id>python-test-interactive</id>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

@@ -1,0 +1,27 @@
+# Project Specific #
+####################
+
+# IDE generated files #
+###########################
+.idea
+*.iml
+*/out
+**/.project
+**/.settings
+**/.classpath
+
+# Build specific folders #
+###########################
+build/
+**/generated-src
+**/bin/
+**/target/
+**/classes
+*.log
+
+# Gradle #
+###########################
+.gradle
+**/logs/
+
+

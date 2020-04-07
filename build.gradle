@@ -1,0 +1,36 @@
+description = 'Test Examination'
+
+buildscript {
+    ext {
+        kotlinVersion = '1.3.61'
+        jupiterVersion = '5.3.1'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
+    }
+    apply from: file('gradle/buildscript.gradle'), to: buildscript
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+
+    group 'neev.sdet.exam'
+    version '1.0'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+dependencies {
+    apply from: "$rootDir/gradle/dependencies.gradle"
+}
+

@@ -1,10 +1,10 @@
-package neev.sdet.exam
+package wininfosys.sdet.exam
 
 import io.mockk.every
 import io.mockk.mockk
-import neev.sdet.exam.client.RestCountriesClient
-import neev.sdet.exam.helper.RestCountriesHelper
-import neev.sdet.exam.helper.RestCountry
+import wininfosys.sdet.exam.client.RestCountriesClient
+import wininfosys.sdet.exam.helper.RestCountriesHelper
+import wininfosys.sdet.exam.helper.RestCountry
 import org.junit.jupiter.api.Test
 
 import kotlin.test.assertEquals

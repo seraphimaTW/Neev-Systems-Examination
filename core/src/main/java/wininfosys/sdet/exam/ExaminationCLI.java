@@ -1,6 +1,7 @@
-package neev.sdet.exam;
+package wininfosys.sdet.exam;
 
-import neev.sdet.exam.helper.RestCountriesHelper;
+import wininfosys.sdet.exam.client.CountryNotFoundException;
+import wininfosys.sdet.exam.helper.RestCountriesHelper;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -29,7 +30,7 @@ public class ExaminationCLI {
                             String countryName = scanner.next();
                             try {
                                 capitalName = restCountriesHelper.getCapitalByCountryName(countryName);
-                            } catch (NoSuchElementException e) {
+                            } catch (NoSuchElementException | CountryNotFoundException e) {
                                 System.out.println("We were not able to found any data for your input, please try again");
                                 break;
                             }
@@ -40,7 +41,7 @@ public class ExaminationCLI {
                             String countryCode = scanner.next();
                             try {
                                 capitalName = restCountriesHelper.getCapitalByCountryCode(countryCode);
-                            } catch (NoSuchElementException e) {
+                            } catch (NoSuchElementException | CountryNotFoundException e) {
                                 System.out.println("We were not able to found any data for your input, please try again");
                                 break;
                             }
@@ -54,7 +55,6 @@ public class ExaminationCLI {
                     }
                 } catch (Exception e) {
                     System.out.println("Something went wrong, we apologize for the inconvenience");
-                    e.printStackTrace();
                 }
                 System.out.println("Type YES to continue");
             } while (scanner.next().equalsIgnoreCase("YES"));

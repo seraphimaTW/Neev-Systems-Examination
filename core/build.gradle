@@ -53,7 +53,7 @@ shadowJar {
     mergeServiceFiles()
     exclude 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.SF'
     manifest {
-        attributes 'Main-Class': 'neev.sdet.exam.ExaminationCLI'
+        attributes 'Main-Class': 'wininfosys.sdet.exam.ExaminationCLI'
     }
     archiveClassifier.set('main')
     archiveFileName.set('core-main.jar')

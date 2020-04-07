@@ -1,4 +1,4 @@
-package neev.sdet.exam.helper;
+package wininfosys.sdet.exam.helper;
 
 public class RestCountry {
     public String name;

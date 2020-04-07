@@ -1,4 +1,4 @@
-rootProject.name = 'Neev Systems Examination'
+rootProject.name = 'WininfosysExamination'
 include 'core'
 include 'int-tests'
 
